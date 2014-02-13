@@ -1,0 +1,115 @@
+.coremenu{
+width:100%; height:34px; background:#eee; /*background of menu bar (default state)*/
+list-style:none;
+}
+
+.coremenu ul{
+z-index:100;
+list-style-type: none;
+list-style-image:none;
+margin:0px; padding:0px;
+}
+
+/*Top level list items*/
+.coremenu ul li{
+position: relative;
+display: inline;
+list-style:none;
+float:left;
+line-height:10px;
+text-align:center;
+}
+
+/*Top level menu link items style*/
+.coremenu ul li a{
+display: block;
+padding: 8px 10px 8px 20px;
+font:bold 14px Calibri, Arial; color:#545556; text-transform:uppercase; text-decoration:none;
+}
+
+* html .coremenu ul li a{ /*IE6 hack to get sub menu links to behave correctly*/
+display: inline-block;
+}
+
+/*.coremenu ul li a:link, .coremenu ul li a:visited{
+color: white;
+}*/
+
+.coremenu ul li a.selected{ /*CSS class that's dynamically added to the currently active menu items' LI A element*/
+color:#000;
+}
+
+.coremenu ul li a:hover{
+color:#f36e0e;
+}
+	
+/*1st sub level menu*/
+.coremenu ul li ul{
+position:absolute;
+left:0;
+background::none;
+display: none; /*collapse all sub menus to begin with*/
+visibility: hidden;
+}
+
+/*Sub level menu list items (undo style from Top level List Items)*/
+.coremenu ul li ul li{
+text-align:left;
+display: list-item;
+float: none;
+background:#eee;
+padding-left:10px;
+border:1px solid #ccc;
+border-top:none;
+}
+
+/*All subsequent sub menu levels vertical offset after 1st level sub menu */
+.coremenu ul li ul li ul{
+top: 0;
+}
+
+/* Sub level menu links style */
+.coremenu ul li ul li a{
+font:bold 12px Calibri, Arial; color:#545556; text-decoration:none;
+width: 160px; /*width of sub menus*/
+padding: 5px;
+margin: 0;
+border-top-width: 0;
+/*border-bottom: 1px solid gray;*/
+}
+.coremenu ul li ul li a:hover{
+color:#f36e0e;}
+
+/* Holly Hack for IE \*/
+* html .coremenu{height: 1%;} /*Holly Hack for IE7 and below*/
+
+
+/* ######### CSS classes applied to down and right arrow images  ######### */
+
+.downarrowclass{
+position: absolute;
+top: 12px;
+right: 7px;
+}
+
+.rightarrowclass{
+position: absolute;
+top: 6px;
+right: 5px;
+}
+
+/* ######### CSS for shadow added to sub menus  ######### */
+
+.ddshadow{
+position: absolute;
+left: 0;
+top: 0;
+width: 0;
+height: 0;
+background: silver;
+}
+
+.toplevelshadow{ /*shadow opacity. Doesn't work in IE*/
+opacity: 0.4;
+filter: alpha(opacity=40);
+}

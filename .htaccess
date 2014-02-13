@@ -1,0 +1,27 @@
+RewriteEngine on
+
+# Restrict direct access of directory browsing
+Options All -Indexes
+
+RewriteRule ^([\w\/\-]+)$ index.php?query_segments=$1 [L,QSA]
+
+
+ErrorDocument 404 /myweb/NotFound/
+
+RewriteRule media/css/index.css$ media/css/index.php
+
+RewriteRule ^index$ index.php
+RewriteRule ^my_account$ my_account.php
+RewriteRule ^my_account-([a-zA-Z0-9]+)$ my_account.php?action=$1
+RewriteRule ^logout$ logout.php
+RewriteRule ^login$ login.php
+RewriteRule ^login-(\w+\@\w+\.\w+)$ login.php?email=$1
+RewriteRule ^registration$ registration.php
+RewriteRule ^forget_password(\-)?(\w+)?$ forget_password.php?type=$2
+RewriteRule ^forget_password-(\w+)\-(\w+\@\w+\.\w+)(\-)?(\w+)?$ forget_password.php?reset=$1&email=$2&type=$4
+
+RewriteRule ^paypal-([0-9]+)$ paypal.php?app_id=$1
+RewriteRule ^paypal-([a-z-A-Z0-9\_]+)-([a-z-A-Z0-9\_]+)$ paypal.php?action=$1&key=$2
+RewriteRule ^page-([0-9]+)$ page.php?pid=$1
+RewriteRule ^faq(-)?([0-9]+)?$ faq.php?cat_id=$2
+RewriteRule ^feedback$ feedback.php
